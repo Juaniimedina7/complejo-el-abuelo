@@ -47,8 +47,9 @@ export default function UnitCard({ unit }) {
           ))}
         </ul>
 
-        {/* Miniaturas (fotos + video) */}
-        <div className="mt-5 grid grid-cols-4 gap-2">
+        {/* Miniaturas + CTA al fondo (mt-auto) para alinear los botones entre cards */}
+        <div className="mt-auto pt-5">
+          <div className="grid grid-cols-4 gap-2">
           {media.slice(0, 4).map((src, i) => {
             const video = esVideo(src)
             const last = i === 3 && media.length > 4
@@ -77,16 +78,17 @@ export default function UnitCard({ unit }) {
               </button>
             )
           })}
-        </div>
+          </div>
 
-        <a
-          href={waUnidad(unit.name)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-5 flex items-center justify-center gap-2 rounded-xl bg-coral px-4 py-3 font-bold text-white transition-all hover:bg-coral-dark hover:-translate-y-0.5"
-        >
-          <WhatsAppIcon className="size-5" /> Consultar {unit.name}
-        </a>
+          <a
+            href={waUnidad(unit.name)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-coral px-4 py-3 font-bold text-white transition-all hover:bg-coral-dark hover:-translate-y-0.5"
+          >
+            <WhatsAppIcon className="size-5" /> Consultar {unit.name}
+          </a>
+        </div>
       </div>
 
       {lbIndex != null && (
