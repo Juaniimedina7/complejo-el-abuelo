@@ -12,7 +12,9 @@ export default function ComplejoPage({ numero }) {
   const otro = numero === 1 ? 2 : 1
 
   // Scroll al top al cambiar de complejo.
-  useEffect(() => window.scrollTo({ top: 0 }), [numero])
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [numero])
 
   return (
     <>

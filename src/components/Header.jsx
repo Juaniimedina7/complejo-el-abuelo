@@ -17,7 +17,9 @@ export default function Header() {
   }, [])
 
   // Cerrar el menú mobile al cambiar de página.
-  useEffect(() => setOpen(false), [location.pathname])
+  useEffect(() => {
+    setOpen(false)
+  }, [location.pathname])
 
   return (
     <header

@@ -14,7 +14,9 @@ import AdminPage from './pages/AdminPage.jsx'
 // Lleva el scroll al tope al navegar entre páginas.
 function ScrollToTop() {
   const { pathname } = useLocation()
-  useEffect(() => window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' }), [pathname])
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' })
+  }, [pathname])
   return null
 }
 
