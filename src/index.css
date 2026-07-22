@@ -1,0 +1,94 @@
+/* Fuentes — el @import debe ir ANTES de tailwindcss (requisito del spec CSS). */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  /* Paleta — mar, arena y atardecer de Chapadmalal */
+  --color-turquesa: #2f97b8;
+  --color-turquesa-light: #6fc3da;
+  --color-turquesa-dark: #227a97;
+  --color-profundo: #0f3b49; /* teal profundo para footer / secciones oscuras */
+  --color-profundo-light: #17505f;
+
+  --color-arena: #f5ead8; /* fondo general cálido */
+  --color-arena-dark: #e6d3b3; /* bordes, placeholders */
+  --color-arena-soft: #fbf5ec; /* tarjetas claras */
+
+  --color-coral: #e86f43; /* CTA principal, atardecer */
+  --color-coral-dark: #cf5730;
+  --color-coral-light: #f4a17f;
+
+  --color-texto: #33302b; /* gris cálido, no negro puro */
+  --color-texto-soft: #6b6559;
+
+  /* Tipografía */
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', ui-serif, Georgia, serif;
+
+  /* Radios y sombras suaves */
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.75rem;
+  --shadow-suave: 0 10px 30px -12px rgba(15, 59, 73, 0.25);
+  --shadow-flotante: 0 20px 50px -20px rgba(15, 59, 73, 0.35);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-arena);
+    color: var(--color-texto);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: var(--color-coral);
+    color: white;
+  }
+}
+
+@layer utilities {
+  /* Textura de grano sutil para dar atmósfera de "papel / arena" */
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Aparición con leve subida — usada en reveals escalonados */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-rise {
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .animate-floaty {
+    animation: floaty 4s ease-in-out infinite;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
