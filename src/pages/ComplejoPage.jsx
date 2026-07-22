@@ -25,6 +25,9 @@ export default function ComplejoPage({ numero }) {
         <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-turquesa-light">Complejo El Abuelo</p>
           <h1 className="mt-2 font-display text-5xl text-white sm:text-6xl">{complejo.titulo}</h1>
+          {complejo.direccion && (
+            <p className="mt-2 text-sm font-semibold text-turquesa-light">{complejo.direccion} · Santa Clara del Mar</p>
+          )}
           <p className="mt-3 max-w-xl text-lg text-white/85">{complejo.bajada}</p>
         </div>
       </section>

@@ -1,29 +1,36 @@
-/* Fuentes — el @import debe ir ANTES de tailwindcss (requisito del spec CSS). */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+/* Fuentes — el @import debe ir ANTES de tailwindcss (requisito del spec CSS).
+   Kaushan Script: wordmark del logo (pincel, según la marca del cliente).
+   Fraunces: títulos (stand-in web de "Finesse Roman", que no está en Google Fonts).
+   Nunito: cuerpo (cálida y amable). */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Kaushan+Script&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  /* Paleta — mar, arena y atardecer de Chapadmalal */
-  --color-turquesa: #2f97b8;
-  --color-turquesa-light: #6fc3da;
-  --color-turquesa-dark: #227a97;
-  --color-profundo: #0f3b49; /* teal profundo para footer / secciones oscuras */
-  --color-profundo-light: #17505f;
+  /* Paleta oficial del cliente (Guía de estilo El Abuelo) */
+  --color-turquesa: #008cbb; /* azul mar, primario */
+  --color-turquesa-light: #67b0bf;
+  --color-turquesa-dark: #006f95;
+  --color-profundo: #0c4a5b; /* teal profundo (derivado) para footer/secciones dark */
+  --color-profundo-light: #14607a;
 
-  --color-arena: #f5ead8; /* fondo general cálido */
-  --color-arena-dark: #e6d3b3; /* bordes, placeholders */
-  --color-arena-soft: #fbf5ec; /* tarjetas claras */
+  --color-arena: #f7f2eb; /* off-white cálido: fondo general */
+  --color-arena-dark: #e6c79b; /* bordes / separadores (derivado de la arena) */
+  --color-arena-soft: #fffdf8; /* tarjetas claras */
+  --color-sand: #f2d7b6; /* arena más saturada, bandas cálidas */
 
-  --color-coral: #e86f43; /* CTA principal, atardecer */
-  --color-coral-dark: #cf5730;
-  --color-coral-light: #f4a17f;
+  --color-coral: #f26e50; /* CTA principal (atardecer) */
+  --color-coral-dark: #d9522f;
+  --color-coral-light: #f2a285;
 
-  --color-texto: #33302b; /* gris cálido, no negro puro */
-  --color-texto-soft: #6b6559;
+  --color-marron: #745f46; /* acento cálido (madera) */
+
+  --color-texto: #45403a; /* gris cálido oscuro, no negro puro */
+  --color-texto-soft: #615e5e; /* gris de marca */
 
   /* Tipografía */
   --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Fraunces', ui-serif, Georgia, serif;
+  --font-script: 'Kaushan Script', ui-serif, cursive;
 
   /* Radios y sombras suaves */
   --radius-2xl: 1.25rem;

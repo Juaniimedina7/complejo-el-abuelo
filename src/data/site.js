@@ -1,31 +1,31 @@
-// Datos generales del complejo.
-// ⚠️ Reemplazar los valores marcados con TODO por los datos reales del cliente.
+// Datos generales del complejo (datos reales del cliente — 2026).
 
 export const SITE = {
   nombre: 'El Abuelo',
   nombreCompleto: 'Complejo El Abuelo',
-  localidad: 'Chapadmalal',
+  localidad: 'Camet Norte',
+  zona: 'Santa Clara del Mar',
   provincia: 'Buenos Aires',
-  slogan: 'Tu descanso en familia, a metros del mar.',
+  slogan: 'Tu descanso en familia, a dos cuadras del mar.',
   bajada:
-    'Dos complejos de cabañas en Chapadmalal para desconectar, disfrutar la playa y sentirte como en casa.',
+    'Dos complejos de cabañas y departamentos en Camet Norte, Santa Clara del Mar, a solo dos cuadras del mar. Tu lugar para descansar en familia.',
 
-  // TODO: número real del propietario, formato internacional sin "+" ni espacios.
-  whatsapp: '5492230000000',
+  // WhatsApp del propietario (formato internacional sin "+"). Tel: (0221) 15-5049492
+  whatsapp: '5492215049492',
+  telefonoDisplay: '(0221) 15-5049492',
 
-  // TODO: datos reales
-  email: 'reservas@complejoelabuelo.com.ar',
-  direccion: 'Chapadmalal, Costa Atlántica, Buenos Aires',
+  email: 'complejoelabuelo@gmail.com',
+  direccion: 'Calle Quintana 722, Camet Norte — Santa Clara del Mar, Buenos Aires',
 
   redes: {
-    instagram: 'https://instagram.com/', // TODO
+    instagram: 'https://instagram.com/complejoelabuelo',
     instagramUser: '@complejoelabuelo',
-    facebook: 'https://facebook.com/', // TODO
+    facebook: 'https://www.facebook.com/Elabuelocametnorte/',
   },
 
-  // TODO: reemplazar por el link real al pin del complejo en Google Maps
-  mapsLink: 'https://www.google.com/maps/place/Chapadmalal',
-  // Embed de Google Maps (iframe estándar, sin API key). TODO: centrar en la ubicación exacta.
+  // Google Maps: búsqueda por dirección (Camet Norte, Santa Clara del Mar).
+  mapsLink:
+    'https://www.google.com/maps/search/?api=1&query=Quintana+722+Santa+Clara+del+Mar+Buenos+Aires',
   mapsEmbed:
-    'https://www.google.com/maps?q=Chapadmalal,+Buenos+Aires,+Argentina&output=embed',
+    'https://www.google.com/maps?q=Quintana%20722,%20Santa%20Clara%20del%20Mar,%20Buenos%20Aires,%20Argentina&output=embed',
 }

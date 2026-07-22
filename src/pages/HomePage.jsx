@@ -6,11 +6,15 @@ import PromoCard from '../components/PromoCard.jsx'
 import { WhatsAppIcon, InstagramIcon, PinIcon } from '../components/icons.jsx'
 import { SITE } from '../data/site.js'
 import { COMPLEJO_1, COMPLEJO_2 } from '../data/units.js'
-import { ux, IMG } from '../data/images.js'
+import { img } from '../data/images.js'
 import { waLink } from '../lib/whatsapp.js'
 import { listPromosPublicas } from '../lib/promosService.js'
 
-const HERO_IMAGES = [ux(IMG.playa[0], 1920, 1080), ux(IMG.cabanas[2], 1920, 1080), ux(IMG.playa[1], 1920, 1080)]
+const HERO_IMAGES = [
+  img('Abuelo 1/Interior El Abuelo 1.jpg'),
+  img('Abuelo 3/abuelo3-interior.jpg'),
+  img('Abuelo 1/abuelo1-living.jpg'),
+]
 
 function Hero() {
   const [slide, setSlide] = useState(0)
@@ -37,7 +41,7 @@ function Hero() {
 
       <div className="mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-center px-4 py-24 sm:px-6">
         <p className="animate-rise mb-4 flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-turquesa-light" style={{ animationDelay: '0.05s' }}>
-          <PinIcon className="size-4" /> {SITE.localidad}, {SITE.provincia}
+          <PinIcon className="size-4" /> {SITE.localidad} · {SITE.zona}
         </p>
         <h1 className="animate-rise max-w-3xl font-display text-5xl font-medium text-white text-balance sm:text-6xl lg:text-7xl" style={{ animationDelay: '0.15s' }}>
           {SITE.slogan}

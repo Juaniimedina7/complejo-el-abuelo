@@ -1,9 +1,11 @@
 # Complejo El Abuelo 🌊
 
-Sitio web del **Complejo El Abuelo** — cabañas en Chapadmalal, Buenos Aires.
+Sitio web del **Complejo El Abuelo** — cabañas y departamentos en Camet Norte,
+Santa Clara del Mar (Buenos Aires), a dos cuadras del mar.
 
-Dos complejos (Complejo 1 y Complejo 2, cabañas "Abuelo 1" a "Abuelo 5"), galería,
-promociones autogestionables y contacto que deriva todo a **WhatsApp**.
+Dos complejos (Complejo 1: cabañas "Abuelo 1" y "2"; Complejo 2: departamentos
+"Abuelo 3", "4" y "5"), galería, promociones autogestionables y contacto que
+deriva todo a **WhatsApp**.
 
 ## Stack
 
@@ -22,30 +24,35 @@ npm run build      # build de producción a /dist
 npm run preview    # previsualizar el build
 ```
 
-El sitio funciona **sin configuración**: usa fotos de Unsplash y promos de ejemplo.
+Con las variables de Supabase en `.env`, el panel `/admin` queda activo. Sin ellas,
+el sitio igual funciona usando promos de ejemplo (seed).
 
-## Datos a reemplazar (placeholders)
+## Datos del cliente (ya cargados)
 
-| Dónde | Qué reemplazar |
+Ubicación, contacto, unidades (Abuelo 1–5), servicios, fotos y videos son **datos
+reales**. Lo que todavía conviene actualizar:
+
+| Dónde | Qué actualizar |
 |---|---|
-| `src/data/site.js` | Número de WhatsApp, email, dirección, links de Instagram/Facebook, link y embed de Google Maps |
-| `src/data/units.js` | Descripciones, capacidades y fotos reales de cada cabaña |
-| `src/data/services.js` | Servicios que incluye / no incluye cada complejo |
-| `src/data/gallery.js` | Fotos reales para la galería |
-| `src/data/testimonials.js` | Reseñas reales (idealmente con link a Google) |
-| `src/index.html` | Meta `og:image` (foto real 1200×630 en `/public/og-image.jpg`) |
+| `src/data/testimonials.js` | Reemplazar reseñas de ejemplo por reales (con link a Google) |
+| `index.html` | Meta `og:image` (foto real 1200×630 en `/public/og-image.jpg`) |
 
-### Fotos
+Para editar contacto/unidades/servicios/galería: `src/data/*.js` (ver `CLAUDE.md`).
 
-Hoy las imágenes son **placeholders de Unsplash** (`src/data/images.js`).
-Para usar fotos reales: subirlas a `/public` (o a Cloudinary/S3) y reemplazar las
-URLs en `units.js`, `gallery.js`, `promos.js` y `site.js`. El helper `ux()` solo
-arma URLs de Unsplash; con fotos propias se pasan las URLs directamente.
+### Fotos y videos
+
+Viven en el bucket **público** `images` de Supabase Storage, en carpetas
+`Abuelo 1` … `Abuelo 5`. Se referencian con el helper `img('Abuelo 1/archivo.jpg')`
+(`src/data/images.js`), que arma la URL pública. Para agregar/cambiar una foto:
+subirla al bucket y usar `img('<carpeta>/<archivo>')` en `units.js` / `gallery.js`.
+Los videos `.mp4` se muestran en el lightbox y en las miniaturas de las cabañas.
 
 ## Panel de administración de promociones (`/admin`)
 
-El sitio muestra promos de ejemplo hasta que se conecte Supabase. Para activar la
-autogestión (que el dueño cree/edite/borre promos desde `/admin`):
+**Estado: ya configurado.** El proyecto de Supabase existe, la tabla `promociones`
+está creada y el bucket `images` es público. El `/admin` levanta el login. Solo
+resta que el dueño tenga su usuario admin creado (paso 4). Estos pasos quedan como
+referencia / para replicar el setup:
 
 ### 1. Crear proyecto en Supabase
 
@@ -89,13 +96,23 @@ Copiar `.env.example` a `.env` y completar con los valores del proyecto
 
 ```
 VITE_SUPABASE_URL=https://xxxx.supabase.co
-VITE_SUPABASE_ANON_KEY=eyJhbGci...
+VITE_SUPABASE_ANON_KEY=sb_publishable_xxx   # o la anon key legacy (eyJhbGci...)
 ```
+
+> Solo las variables con prefijo `VITE_` llegan al navegador. La *publishable key*
+> es pública/segura para el front. **Nunca** pongas la `secret key`, el
+> `DATABASE_URL` ni las access keys de S3 con prefijo `VITE_`.
 
 ### 4. Crear el usuario administrador
 
 En Supabase → Authentication → Users → "Add user", crear el email/contraseña
 del dueño. Con eso puede ingresar en `/admin`.
+
+### 5. Fotos: bucket de Storage
+
+Las fotos van en un bucket **público** llamado `images` (carpetas `Abuelo 1` …
+`Abuelo 5`). Si se crea de cero: Storage → New bucket → nombre `images` → marcar
+"Public bucket". Ver "Fotos y videos" arriba.
 
 > El sitio público solo lee promos con `activa = true`; el resto queda oculto.
 

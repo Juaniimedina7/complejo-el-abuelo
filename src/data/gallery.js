@@ -1,28 +1,27 @@
-import { ux, IMG } from './images.js'
+import { img } from './images.js'
 
-// Galería general. `cat` alimenta el filtro por categoría.
-// ⚠️ Fotos placeholder — reemplazar por imágenes reales del complejo.
+// Galería general con fotos reales del bucket de Supabase. `cat` alimenta el filtro.
 
-const item = (id, alt, cat) => ({
-  src: ux(id, 800, 600),
-  full: ux(id, 1600, 1050),
-  alt,
-  cat,
-})
+const item = (path, alt, cat) => ({ src: img(path), full: img(path), alt, cat })
 
 export const GALLERY = [
-  item(IMG.cabanas[0], 'Cabaña Abuelo 1 desde el parque', 'Complejo 1'),
-  item(IMG.interiores[0], 'Interior de cabaña con living integrado', 'Complejo 1'),
-  item(IMG.interiores[1], 'Dormitorio principal', 'Complejo 1'),
-  item(IMG.parrilla[0], 'Parrilla lista para el asado', 'Complejo 1'),
-  item(IMG.cabanas[2], 'Cabaña Abuelo 3 junto a la pileta', 'Complejo 2'),
-  item(IMG.pileta[0], 'Pileta semiolímpica del Complejo 2', 'Complejo 2'),
-  item(IMG.interiores[2], 'Comedor amplio de la cabaña Abuelo 5', 'Complejo 2'),
-  item(IMG.pileta[1], 'Reposeras al sol junto a la pileta', 'Complejo 2'),
-  item(IMG.playa[0], 'La playa de Chapadmalal', 'Entorno'),
-  item(IMG.playa[1], 'Atardecer sobre el mar', 'Entorno'),
-  item(IMG.entorno[0], 'Verde y naturaleza alrededor del complejo', 'Entorno'),
-  item(IMG.entorno[1], 'Camino de acceso entre árboles', 'Entorno'),
+  // Complejo 1
+  item('Abuelo 1/Interior El Abuelo 1.jpg', 'Cabaña Abuelo 1', 'Complejo 1'),
+  item('Abuelo 1/abuelo1-living.jpg', 'Living de la cabaña Abuelo 1', 'Complejo 1'),
+  item('Abuelo 1/abuelo1-cama-doble.jpg', 'Dormitorio con cama doble — Abuelo 1', 'Complejo 1'),
+  item('Abuelo 1/abuelo1-camas-simples.jpg', 'Dormitorio con camas simples — Abuelo 1', 'Complejo 1'),
+  item('Abuelo 1/parrila el Abuelo 1.jpg', 'Parrilla techada — Abuelo 1', 'Complejo 1'),
+  item('Abuelo 1/abuelo1-banio.jpg', 'Baño con hidromasaje — Abuelo 1', 'Complejo 1'),
+  item('Abuelo 2/abuelo2-interior.jpg', 'Interior de la cabaña Abuelo 2', 'Complejo 1'),
+  item('Abuelo 2/abuelo2-cocina.jpg', 'Cocina de la cabaña Abuelo 2', 'Complejo 1'),
+  item('Abuelo 2/abuelo2-cama-doble.jpg', 'Dormitorio con cama doble — Abuelo 2', 'Complejo 1'),
+  // Complejo 2
+  item('Abuelo 3/abuelo3-interior.jpg', 'Departamento Abuelo 3', 'Complejo 2'),
+  item('Abuelo 3/abuelo3-cama-doble.jpg', 'Dormitorio — Abuelo 3', 'Complejo 2'),
+  item('Abuelo 4/abuelo4-interior.jpg', 'Departamento Abuelo 4', 'Complejo 2'),
+  item('Abuelo 4/abuelo4-interior2.jpg', 'Comedor — Abuelo 4', 'Complejo 2'),
+  item('Abuelo 5/abuelo5-interior.jpg', 'Departamento Abuelo 5', 'Complejo 2'),
+  item('Abuelo 5/abuelo5-cocina.jpg', 'Cocina comedor — Abuelo 5', 'Complejo 2'),
 ]
 
-export const GALLERY_CATS = ['Todas', 'Complejo 1', 'Complejo 2', 'Entorno']
+export const GALLERY_CATS = ['Todas', 'Complejo 1', 'Complejo 2']

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Sitio web del Complejo El Abuelo — cabañas en Chapadmalal",
+  "description": "Sitio web del Complejo El Abuelo — cabañas en Santa Clara del Mar (Camet Norte)",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

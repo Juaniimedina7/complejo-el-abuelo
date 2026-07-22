@@ -1,30 +1,31 @@
-// Servicios por complejo — "incluye" (check verde) / "no incluye" (equis gris).
-// Honestidad al estilo El Capricho: aclarar lo que NO se ofrece evita malentendidos.
+// Servicios por complejo — datos reales (Detalles El Abuelo 2026).
+// "incluye" (check) / "no incluye" (equis). Ropa de cama y toallas se reponen cada 7 días.
 
 export const SERVICIOS = {
   1: {
     incluye: [
-      'Pileta compartida',
-      'Parque y jardín',
+      'Pileta con climatización solar',
+      'Parque compartido cercado',
       'WiFi',
-      'Parrilla propia',
-      'Ropa de cama',
-      'Estacionamiento',
-      'TV Smart',
+      'TV con cable',
+      'Parrilla individual',
+      'Reposeras, mesas y sillas para exterior',
+      'Ropa de cama (recambio cada 7 días)',
+      'Toallas (recambio cada 7 días)',
     ],
-    noIncluye: ['Desayuno', 'Limpieza diaria', 'Toallas / toallones', 'Artículos de limpieza'],
+    noIncluye: ['Desayuno', 'Limpieza diaria'],
   },
   2: {
     incluye: [
-      'Pileta semiolímpica',
-      'Parque con juegos infantiles',
+      'Aire acondicionado',
+      'Parque compartido',
       'WiFi',
-      'Parrilla y fogón',
-      'Ropa de cama',
-      'Estacionamiento',
-      'TV Smart',
-      'Deck exterior',
+      'TV con cable',
+      'Parrilla individual',
+      'Mesas y sillas para exterior',
+      'Ropa de cama (recambio cada 7 días)',
+      'Toallas (recambio cada 7 días)',
     ],
-    noIncluye: ['Desayuno', 'Limpieza diaria', 'Toallas / toallones', 'Artículos de higiene'],
+    noIncluye: ['Desayuno', 'Limpieza diaria'],
   },
 }

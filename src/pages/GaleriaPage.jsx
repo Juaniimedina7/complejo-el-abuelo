@@ -17,7 +17,7 @@ export default function GaleriaPage() {
         <p className="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-coral">Galería</p>
         <h1 className="font-display text-4xl text-profundo sm:text-5xl">Mirá cada rincón</h1>
         <p className="mx-auto mt-4 max-w-xl text-texto-soft">
-          Recorré las cabañas, la pileta y el entorno de Chapadmalal. Hacé clic en cualquier foto para verla en grande.
+          Recorré las cabañas, la pileta y el entorno de Santa Clara del Mar. Hacé clic en cualquier foto para verla en grande.
         </p>
       </div>
 

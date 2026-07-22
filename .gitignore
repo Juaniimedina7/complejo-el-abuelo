@@ -36,3 +36,6 @@ pnpm-debug.log*
 
 # config local de Claude Code
 .claude/
+
+# fotos locales (ya viven en el bucket de Supabase; no las usa el build)
+images/

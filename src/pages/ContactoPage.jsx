@@ -125,7 +125,7 @@ export default function ContactoPage() {
 
           <div className="overflow-hidden rounded-3xl shadow-suave ring-1 ring-arena-dark">
             <iframe
-              title="Ubicación del Complejo El Abuelo en Chapadmalal"
+              title="Ubicación del Complejo El Abuelo en Santa Clara del Mar"
               src={SITE.mapsEmbed}
               className="h-64 w-full border-0"
               loading="lazy"

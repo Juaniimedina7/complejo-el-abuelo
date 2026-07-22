@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from 'react'
+import { esVideo } from '../data/images.js'
 
-// Lightbox compartido con navegación por flechas y teclado.
+// Lightbox compartido con navegación por flechas y teclado. Soporta imágenes y videos (.mp4).
 // Props: images (string[]), alts (string[]), index, onClose, onPrev, onNext.
 export default function Lightbox({ images, alts = [], index, onClose, onPrev, onNext }) {
   const handleKey = useCallback(
@@ -60,11 +61,21 @@ export default function Lightbox({ images, alts = [], index, onClose, onPrev, on
       )}
 
       <figure className="mx-4 max-h-[85vh] max-w-5xl" onClick={(e) => e.stopPropagation()}>
-        <img
-          src={images[index]}
-          alt={alts[index] || ''}
-          className="max-h-[80vh] w-auto rounded-2xl object-contain shadow-flotante"
-        />
+        {esVideo(images[index]) ? (
+          <video
+            src={images[index]}
+            controls
+            autoPlay
+            playsInline
+            className="max-h-[80vh] w-auto rounded-2xl shadow-flotante"
+          />
+        ) : (
+          <img
+            src={images[index]}
+            alt={alts[index] || ''}
+            className="max-h-[80vh] w-auto rounded-2xl object-contain shadow-flotante"
+          />
+        )}
         <figcaption className="mt-3 text-center text-sm text-white/70">
           {alts[index] ? `${alts[index]} · ` : ''}
           {index + 1} / {images.length}
