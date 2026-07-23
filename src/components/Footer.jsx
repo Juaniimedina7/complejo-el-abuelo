@@ -120,7 +120,17 @@ export default function Footer() {
       <div className="relative border-t border-white/10">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-white/50 sm:flex-row sm:px-6">
           <p>© {new Date().getFullYear()} Complejo El Abuelo · {SITE.localidad}, {SITE.provincia}</p>
-          <p>Hecho con cariño frente al mar 🌊</p>
+          <p>
+            Developed by{' '}
+            <a
+              href="https://github.com/Juaniimedina7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-white/70 underline underline-offset-2 transition-colors hover:text-turquesa-light"
+            >
+              JM
+            </a>
+          </p>
         </div>
       </div>
     </footer>

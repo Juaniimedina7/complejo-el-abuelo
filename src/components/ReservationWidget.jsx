@@ -37,19 +37,19 @@ export default function ReservationWidget({ variant = 'light', unidadInicial = '
         dark ? 'bg-white/10 backdrop-blur-md ring-1 ring-white/15' : 'bg-arena-soft ring-1 ring-arena-dark'
       }`}
     >
-      <div>
+      <div className="min-w-0">
         <label className={labelCls} htmlFor="rw-checkin">Entrada</label>
         <input id="rw-checkin" type="date" value={checkin} onChange={(e) => setCheckin(e.target.value)} className={fieldCls} />
       </div>
-      <div>
+      <div className="min-w-0">
         <label className={labelCls} htmlFor="rw-checkout">Salida</label>
         <input id="rw-checkout" type="date" value={checkout} min={checkin || undefined} onChange={(e) => setCheckout(e.target.value)} className={fieldCls} />
       </div>
-      <div>
+      <div className="min-w-0">
         <label className={labelCls} htmlFor="rw-personas">Personas</label>
         <input id="rw-personas" type="number" min={1} max={12} value={personas} onChange={(e) => setPersonas(e.target.value)} className={fieldCls} />
       </div>
-      <div>
+      <div className="min-w-0">
         <label className={labelCls} htmlFor="rw-unidad">Cabaña</label>
         <select id="rw-unidad" value={unidad} onChange={(e) => setUnidad(e.target.value)} className={fieldCls}>
           {UNIDADES.map((u) => (
