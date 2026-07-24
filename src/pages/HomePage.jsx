@@ -61,7 +61,7 @@ function Hero() {
 
         {/* Widget de reserva */}
         <div className="animate-rise mt-12 w-full" style={{ animationDelay: '0.6s' }}>
-          <p className="mb-3 text-sm font-semibold text-white/80">Consultá disponibilidad en segundos</p>
+          <p className="mb-3 text-sm font-semibold text-white/80">Consultá la disponibilidad:</p>
           <ReservationWidget variant="dark" />
         </div>
       </div>
