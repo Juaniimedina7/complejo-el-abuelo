@@ -23,10 +23,10 @@ export default function ReservationWidget({ variant = 'light', unidadInicial = '
   }
 
   const dark = variant === 'dark'
-  const labelCls = `mb-1 block text-xs font-bold uppercase tracking-wide ${dark ? 'text-white/70' : 'text-texto-soft'}`
+  const labelCls = `mb-1 block text-xs font-bold uppercase tracking-wide ${dark ? 'text-white/90' : 'text-texto-soft'}`
   const fieldCls = `w-full rounded-xl border px-3 py-2.5 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-turquesa/50 ${
     dark
-      ? 'border-white/15 bg-white/10 text-white [color-scheme:dark]'
+      ? 'border-white/25 bg-white/15 text-white [color-scheme:dark]'
       : 'border-arena-dark bg-white text-texto'
   }`
 
@@ -34,7 +34,7 @@ export default function ReservationWidget({ variant = 'light', unidadInicial = '
     <form
       onSubmit={consultar}
       className={`grid gap-4 rounded-3xl p-5 shadow-flotante sm:grid-cols-2 lg:grid-cols-5 lg:items-end lg:gap-3 ${
-        dark ? 'bg-white/10 backdrop-blur-md ring-1 ring-white/15' : 'bg-arena-soft ring-1 ring-arena-dark'
+        dark ? 'bg-profundo/60 backdrop-blur-md ring-1 ring-white/20' : 'bg-arena-soft ring-1 ring-arena-dark'
       }`}
     >
       <div className="min-w-0">
