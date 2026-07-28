@@ -40,8 +40,8 @@ function Hero() {
       </div>
 
       <div className="mx-auto flex min-h-[88vh] max-w-6xl flex-col justify-center px-4 py-24 sm:px-6">
-        <p className="animate-rise mb-4 flex items-center gap-2 text-sm font-bold uppercase tracking-[0.2em] text-turquesa-light" style={{ animationDelay: '0.05s' }}>
-          <PinIcon className="size-4" /> {SITE.localidad} · {SITE.zona}
+        <p className="animate-rise mb-4 inline-flex w-fit items-center gap-2 rounded-full bg-profundo/45 px-3.5 py-1.5 text-sm font-bold uppercase tracking-[0.2em] text-white shadow-suave ring-1 ring-white/15 backdrop-blur-sm" style={{ animationDelay: '0.05s' }}>
+          <PinIcon className="size-4 text-turquesa-light" /> {SITE.localidad} · {SITE.zona}
         </p>
         <h1 className="animate-rise max-w-3xl font-display text-5xl font-medium text-white text-balance sm:text-6xl lg:text-7xl" style={{ animationDelay: '0.15s' }}>
           {SITE.slogan}
