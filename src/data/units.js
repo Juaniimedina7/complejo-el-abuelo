@@ -74,6 +74,7 @@ const detallesDepto = [
   'Aire acondicionado en el comedor',
   'Mesas y sillas exteriores',
   'Ducha exterior',
+  'Entrada de auto',
 ]
 
 export const COMPLEJO_2 = {

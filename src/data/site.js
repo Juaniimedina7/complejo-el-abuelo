@@ -6,7 +6,8 @@ export const SITE = {
   localidad: 'Camet Norte',
   zona: 'Santa Clara del Mar',
   provincia: 'Buenos Aires',
-  slogan: 'Tu descanso en familia, a dos cuadras del mar.',
+  slogan: 'Cabañas de Playa & Naturaleza',
+  heroSub: 'Respirá distinto. Descansá de verdad.',
   bajada:
     'Dos complejos de cabañas y departamentos en Camet Norte, Santa Clara del Mar, a solo dos cuadras del mar. Tu lugar para descansar en familia.',
 

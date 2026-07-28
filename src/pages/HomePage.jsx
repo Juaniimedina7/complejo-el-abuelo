@@ -10,10 +10,10 @@ import { img } from '../data/images.js'
 import { waLink } from '../lib/whatsapp.js'
 import { listPromosPublicas } from '../lib/promosService.js'
 
+// Fotos de la zona para el carrusel del inicio (bucket images/hero de Supabase).
 const HERO_IMAGES = [
-  img('Abuelo 1/Interior El Abuelo 1.jpg'),
-  img('Abuelo 3/abuelo3-interior.jpg'),
-  img('Abuelo 1/abuelo1-living.jpg'),
+  img('hero/camet.jpg'),
+  img('hero/frente-complejo1.jpg'),
 ]
 
 function Hero() {
@@ -47,7 +47,7 @@ function Hero() {
           {SITE.slogan}
         </h1>
         <p className="animate-rise mt-5 max-w-xl text-lg text-white/85" style={{ animationDelay: '0.3s' }}>
-          {SITE.bajada}
+          {SITE.heroSub}
         </p>
 
         <div className="animate-rise mt-8 flex flex-wrap gap-3" style={{ animationDelay: '0.45s' }}>
