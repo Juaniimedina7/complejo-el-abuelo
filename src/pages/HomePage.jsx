@@ -46,7 +46,7 @@ function Hero() {
         <h1 className="animate-rise max-w-3xl font-display text-5xl font-medium text-white text-balance sm:text-6xl lg:text-7xl" style={{ animationDelay: '0.15s' }}>
           {SITE.slogan}
         </h1>
-        <p className="animate-rise mt-5 max-w-xl text-lg text-white/85" style={{ animationDelay: '0.3s' }}>
+        <p className="animate-rise mt-5 max-w-xl text-lg text-white [text-shadow:0_1px_8px_rgba(12,74,91,0.7)]" style={{ animationDelay: '0.3s' }}>
           {SITE.heroSub}
         </p>
 
