@@ -5,16 +5,8 @@ import { NAV } from '../data/nav.js'
 import { waLink } from '../lib/whatsapp.js'
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const location = useLocation()
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   // Cerrar el menú mobile al cambiar de página.
   useEffect(() => {
@@ -22,16 +14,10 @@ export default function Header() {
   }, [location.pathname])
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-arena-soft/85 backdrop-blur-md shadow-suave'
-          : 'bg-transparent'
-      }`}
-    >
+    <header className="sticky top-0 z-50 bg-arena-soft/85 shadow-suave backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link to="/" aria-label="Inicio — Complejo El Abuelo">
-          <Logo compact={scrolled} />
+          <Logo />
         </Link>
 
         {/* Nav desktop */}

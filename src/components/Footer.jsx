@@ -59,7 +59,7 @@ export default function Footer() {
       <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
         {/* Marca */}
         <div>
-          <Logo dark />
+          <Logo variant="favicon" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">{SITE.bajada}</p>
           <div className="mt-5 flex gap-3">
             <a href={SITE.redes.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="grid size-10 place-items-center rounded-full bg-white/10 transition-colors hover:bg-coral">

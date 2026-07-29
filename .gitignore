@@ -12,6 +12,7 @@ dist-ssr
 .env
 .env.local
 .env.*.local
+.mcp.json
 
 # material de trabajo con Claude (no versionar)
 claude-info/
