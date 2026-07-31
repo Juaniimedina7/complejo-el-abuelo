@@ -10,7 +10,7 @@ export const COMPLEJO_1 = {
   direccion: 'Calle Quintana 722 e/ Richieri y Arbolito',
   bajada:
     'Dos cabañas completamente equipadas para 5 personas, con parque cercado y pileta con climatización solar. A dos cuadras del mar.',
-  hero: img('Abuelo 1/Interior El Abuelo 1.jpg'),
+  hero: img('Abuelo 1/abuelo1-living.jpg'),
   units: [
     {
       slug: 'abuelo-1',

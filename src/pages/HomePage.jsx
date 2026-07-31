@@ -14,6 +14,7 @@ import { listPromosPublicas } from '../lib/promosService.js'
 const HERO_IMAGES = [
   img('hero/camet.jpg'),
   img('hero/frente-complejo1.jpg'),
+  img('hero/playa.png'),
 ]
 
 function Hero() {
