@@ -18,6 +18,9 @@ export default function UnitCard({ unit }) {
   const [lbIndex, setLbIndex] = useState(null)
   // El video (si existe) se suma al final de la galería del lightbox.
   const media = unit.video ? [...unit.gallery, unit.video] : unit.gallery
+  // Miniaturas: imágenes + (si hay) un tile de video visible con ícono de play.
+  const imgSlots = unit.video ? unit.gallery.slice(0, 3) : unit.gallery.slice(0, 4)
+  const hiddenImgs = unit.gallery.length - imgSlots.length
 
   return (
     <article id={unit.slug} className="group flex scroll-mt-24 flex-col overflow-hidden rounded-3xl bg-arena-soft shadow-suave ring-1 ring-arena-dark transition-shadow hover:shadow-flotante">
@@ -50,34 +53,36 @@ export default function UnitCard({ unit }) {
         {/* Miniaturas + CTA al fondo (mt-auto) para alinear los botones entre cards */}
         <div className="mt-auto pt-5">
           <div className="grid grid-cols-4 gap-2">
-          {media.slice(0, 4).map((src, i) => {
-            const video = esVideo(src)
-            const last = i === 3 && media.length > 4
-            return (
-              <button
-                key={src}
-                onClick={() => setLbIndex(i)}
-                className="relative aspect-square overflow-hidden rounded-xl ring-1 ring-arena-dark transition-transform hover:scale-[1.03]"
-                aria-label={video ? `Ver video de ${unit.name}` : `Foto ${i + 1} de ${unit.name}`}
-              >
-                {video ? (
-                  <span className="grid size-full place-items-center bg-profundo text-white">
-                    <PlayIcon className="size-7" />
-                  </span>
-                ) : (
+            {imgSlots.map((src, i) => {
+              const isLast = i === imgSlots.length - 1
+              return (
+                <button
+                  key={src}
+                  onClick={() => setLbIndex(i)}
+                  className="relative aspect-square overflow-hidden rounded-xl ring-1 ring-arena-dark transition-transform hover:scale-[1.03]"
+                  aria-label={`Foto ${i + 1} de ${unit.name}`}
+                >
                   <img src={src} alt="" loading="lazy" className="size-full object-cover" />
-                )}
-                {last && (
-                  <span className="absolute inset-0 grid place-items-center bg-profundo/60 text-sm font-bold text-white">
-                    +{media.length - 4}
-                  </span>
-                )}
-                {video && !last && (
-                  <span className="absolute bottom-1 left-1 rounded bg-black/50 px-1.5 text-[10px] font-bold text-white">Video</span>
-                )}
+                  {isLast && hiddenImgs > 0 && (
+                    <span className="absolute inset-0 grid place-items-center bg-profundo/60 text-sm font-bold text-white">
+                      +{hiddenImgs}
+                    </span>
+                  )}
+                </button>
+              )
+            })}
+            {unit.video && (
+              <button
+                onClick={() => setLbIndex(unit.gallery.length)}
+                className="group/vid relative aspect-square overflow-hidden rounded-xl ring-1 ring-arena-dark transition-transform hover:scale-[1.03]"
+                aria-label={`Ver video de ${unit.name}`}
+              >
+                <span className="grid size-full place-items-center bg-profundo text-white transition-colors group-hover/vid:bg-profundo-light">
+                  <PlayIcon className="size-7" />
+                </span>
+                <span className="absolute bottom-1 left-1 rounded bg-black/50 px-1.5 text-[10px] font-bold text-white">Video</span>
               </button>
-            )
-          })}
+            )}
           </div>
 
           <a

@@ -66,7 +66,9 @@ export default function Lightbox({ images, alts = [], index, onClose, onPrev, on
             src={images[index]}
             controls
             autoPlay
+            muted
             playsInline
+            preload="metadata"
             className="max-h-[80vh] w-auto rounded-2xl shadow-flotante"
           />
         ) : (
