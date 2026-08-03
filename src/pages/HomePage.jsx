@@ -15,6 +15,9 @@ const HERO_IMAGES = [
   img('hero/camet.jpg'),
   img('hero/frente-complejo1.jpg'),
   img('hero/playa.png'),
+  img('hero/complejo2.png'),
+  img('hero/piedras.jpg'),
+  img('hero/cartelComplejo1.jpg'),
 ]
 
 function Hero() {

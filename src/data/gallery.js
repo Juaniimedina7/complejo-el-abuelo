@@ -26,6 +26,12 @@ export const GALLERY = [
   item('complejo1/pileta.jpg', 'Pileta del Complejo 1', 'Complejo 1'),
   item('complejo1/pileta2.jpg', 'Pileta del Complejo 1', 'Complejo 1'),
   item('complejo1/patio-complejo1.jpg', 'Patio del Complejo 1', 'Complejo 1'),
+  item('complejo1/cabania.jpg', 'Vista exterior de la cabaña', 'Complejo 1'),
+  item('complejo1/flores.jpg', 'Paisaje floral del Complejo 1', 'Complejo 1'),
+  item('complejo1/macetas.jpg', 'Espacio verde y piscina del Complejo 1', 'Complejo 1'),
+  item('complejo1/parrilla.jpg', 'Parrilla del Complejo 1', 'Complejo 1'),
+
+
 
 
 
@@ -36,6 +42,11 @@ export const GALLERY = [
   item('Abuelo 4/abuelo4-interior2.jpg', 'Comedor — Abuelo 4', 'Complejo 2'),
   item('Abuelo 5/abuelo5-interior.jpg', 'Departamento Abuelo 5', 'Complejo 2'),
   item('Abuelo 5/abuelo5-cocina.jpg', 'Cocina comedor — Abuelo 5', 'Complejo 2'),
+  item('complejo2/cabania.jpg', 'Vista exterior de la cabaña', 'Complejo 2'),
+  item('complejo2/cabania2.jpg', 'Vista exterior de la cabaña', 'Complejo 2'),
+  item('complejo2/cartel.jpg', 'Cartel El Abuelo del complejo 2', 'Complejo 2'),
+  item('complejo2/complejo2.png', 'Vista completa del Complejo 2', 'Complejo 2'),
+
   item(
     'Abuelo 3/abuelo3-video.mp4',
     'Recorrido por el departamento — Abuelo 3',
@@ -54,7 +65,12 @@ export const GALLERY = [
     'Complejo 2',
     'Abuelo 5/abuelo5-interior.jpg',
   ),
-
+  item(
+    'complejo2/VideoComplejo2.mp4',
+    'Video del espacio verde del Complejo 2',
+    'Complejo 2',
+    'complejo2/complejo2.png',
+  ),
 ]
 
 export const GALLERY_CATS = ['Todas', 'Complejo 1', 'Complejo 2']
