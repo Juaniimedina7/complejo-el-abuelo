@@ -66,7 +66,7 @@ export const GALLERY = [
     'Abuelo 5/abuelo5-interior.jpg',
   ),
   item(
-    'complejo2/VideoComplejo2.mp4',
+    'complejo2/videoComplejo2.MP4',
     'Video del espacio verde del Complejo 2',
     'Complejo 2',
     'complejo2/complejo2.png',
