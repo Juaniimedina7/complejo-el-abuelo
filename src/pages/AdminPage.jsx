@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react'
 import { supabase, supabaseEnabled } from '../lib/supabase.js'
 import { listPromosAdmin, crearPromo, actualizarPromo, borrarPromo } from '../lib/promosService.js'
 import PromoCard from '../components/PromoCard.jsx'
+import { GALLERY } from '../data/gallery.js'
+import { esVideo } from '../data/images.js'
+
+// Imágenes para elegir en las promos: las mismas de la galería del sitio (sin videos).
+const IMAGENES = GALLERY.filter((g) => !esVideo(g.src))
 
 const PROMO_VACIA = { titulo: '', descripcion: '', badge: 'Oferta', tono: 'coral', vigencia: '', img: '', activa: true }
 
@@ -94,9 +99,40 @@ function PromoForm({ inicial, onGuardar, onCancelar }) {
         <label className="block text-sm font-bold text-texto">Vigencia
           <input value={p.vigencia} onChange={set('vigencia')} className={`mt-1 ${cls}`} placeholder="Ej: Abril a noviembre" />
         </label>
-        <label className="block text-sm font-bold text-texto">URL de imagen
-          <input value={p.img} onChange={set('img')} className={`mt-1 ${cls}`} placeholder="https://..." />
-        </label>
+        <div className="sm:col-span-2">
+          <p className="mb-1 text-sm font-bold text-texto">Imagen de la promo</p>
+          <p className="mb-2 text-xs text-texto-soft">Elegí una foto de la galería del sitio.</p>
+          <div className="grid max-h-56 grid-cols-3 gap-2 overflow-y-auto rounded-xl border border-arena-dark bg-arena-soft p-2 sm:grid-cols-5">
+            <button
+              type="button"
+              onClick={() => setP((v) => ({ ...v, img: '' }))}
+              className={`grid aspect-square place-items-center rounded-lg px-1 text-center text-[11px] font-bold ring-2 transition ${
+                !p.img ? 'bg-turquesa/10 text-turquesa-dark ring-turquesa' : 'bg-white text-texto-soft ring-transparent hover:ring-turquesa/40'
+              }`}
+            >
+              Sin imagen
+            </button>
+            {IMAGENES.map((im) => (
+              <button
+                type="button"
+                key={im.src}
+                onClick={() => setP((v) => ({ ...v, img: im.src }))}
+                title={im.alt}
+                aria-label={`Usar imagen: ${im.alt}`}
+                className={`relative aspect-square overflow-hidden rounded-lg ring-2 transition ${
+                  p.img === im.src ? 'ring-turquesa' : 'ring-transparent hover:ring-turquesa/40'
+                }`}
+              >
+                <img src={im.src} alt="" loading="lazy" className="size-full object-cover" />
+                {p.img === im.src && (
+                  <span className="absolute inset-0 grid place-items-center bg-turquesa/30">
+                    <svg viewBox="0 0 24 24" className="size-6 text-white" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
       <label className="flex items-center gap-2 text-sm font-bold text-texto">
         <input type="checkbox" checked={p.activa} onChange={set('activa')} className="size-4 accent-turquesa" />
