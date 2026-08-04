@@ -1,9 +1,11 @@
 import { waLink } from '../lib/whatsapp.js'
 import { WhatsAppIcon } from './icons.jsx'
 
-// Tarjeta de promoción. `tono` define el color del badge ('coral' | 'turquesa').
+// Tarjeta de promoción. `tono` define el color del badge y del botón ('coral' | 'turquesa').
 export default function PromoCard({ promo }) {
-  const badgeCls = promo.tono === 'turquesa' ? 'bg-turquesa' : 'bg-coral'
+  const turquesa = promo.tono === 'turquesa'
+  const badgeCls = turquesa ? 'bg-turquesa' : 'bg-coral'
+  const btnCls = turquesa ? 'bg-turquesa hover:bg-turquesa-dark' : 'bg-coral hover:bg-coral-dark'
   const mensaje = `¡Hola! Me interesa la promo "${promo.titulo}" del Complejo El Abuelo. ¿Me pasan más info?`
 
   return (
@@ -32,7 +34,7 @@ export default function PromoCard({ promo }) {
           href={waLink(mensaje)}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 flex items-center justify-center gap-2 rounded-xl bg-coral px-4 py-3 font-bold text-white transition-all hover:bg-coral-dark hover:-translate-y-0.5"
+          className={`mt-4 flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-bold text-white transition-all hover:-translate-y-0.5 ${btnCls}`}
         >
           <WhatsAppIcon className="size-5" /> Quiero esta promo
         </a>
