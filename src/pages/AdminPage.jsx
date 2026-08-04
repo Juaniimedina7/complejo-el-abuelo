@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { supabase, supabaseEnabled } from '../lib/supabase.js'
 import { listPromosAdmin, crearPromo, actualizarPromo, borrarPromo } from '../lib/promosService.js'
+import PromoCard from '../components/PromoCard.jsx'
 
 const PROMO_VACIA = { titulo: '', descripcion: '', badge: 'Oferta', tono: 'coral', vigencia: '', img: '', activa: true }
 
@@ -72,6 +73,7 @@ function PromoForm({ inicial, onGuardar, onCancelar }) {
   }
 
   return (
+    <div className="grid gap-6 lg:grid-cols-[1fr_360px] lg:items-start">
     <form onSubmit={guardar} className="grid gap-3 rounded-2xl bg-white p-5 ring-1 ring-arena-dark">
       <div className="grid gap-3 sm:grid-cols-2">
         <label className="block text-sm font-bold text-texto sm:col-span-2">Título
@@ -109,6 +111,26 @@ function PromoForm({ inicial, onGuardar, onCancelar }) {
         </button>
       </div>
     </form>
+
+      {/* Vista previa en vivo: mismo componente que ve el público */}
+      <aside className="lg:sticky lg:top-24">
+        <p className="mb-2 text-xs font-bold uppercase tracking-wide text-texto-soft">Vista previa</p>
+        <div className="max-w-sm">
+          <PromoCard
+            promo={{
+              ...p,
+              titulo: p.titulo || 'Título de la promo',
+              descripcion: p.descripcion || 'Acá va la descripción de la promoción…',
+            }}
+          />
+        </div>
+        {!p.activa && (
+          <p className="mt-3 rounded-xl bg-arena px-3 py-2 text-xs text-texto-soft">
+            Está marcada como oculta: no se mostrará en el sitio hasta activarla.
+          </p>
+        )}
+      </aside>
+    </div>
   )
 }
 
