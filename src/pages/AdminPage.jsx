@@ -36,6 +36,7 @@ function Login({ onLogged }) {
   const [pass, setPass] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [show, setShow] = useState(false)
 
   const submit = async (e) => {
     e.preventDefault()
@@ -54,7 +55,26 @@ function Login({ onLogged }) {
       <p className="mt-1 text-sm text-texto-soft">Acceso exclusivo para administrar promociones.</p>
       <form onSubmit={submit} className="mt-6 grid gap-3">
         <input type="email" required placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className={cls} />
-        <input type="password" required placeholder="Contraseña" value={pass} onChange={(e) => setPass(e.target.value)} className={cls} />
+        <div className="relative">
+          <input type={show ? 'text' : 'password'} required placeholder="Contraseña" value={pass} onChange={(e) => setPass(e.target.value)} className={`${cls} pr-11`} />
+          <button
+            type="button"
+            onClick={() => setShow((s) => !s)}
+            aria-label={show ? 'Ocultar contraseña' : 'Mostrar contraseña'}
+            className="absolute right-2 top-1/2 grid size-8 -translate-y-1/2 place-items-center rounded-lg text-texto-soft transition-colors hover:text-texto"
+          >
+            {show ? (
+              <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20C5 20 1 12 1 12a18.5 18.5 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19M1 1l22 22M9.9 9.9a3 3 0 0 0 4.2 4.2" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            )}
+          </button>
+        </div>
         {error && <p className="text-sm font-semibold text-coral-dark">{error}</p>}
         <button disabled={loading} className="rounded-xl bg-coral px-4 py-3 font-bold text-white transition-colors hover:bg-coral-dark disabled:opacity-60">
           {loading ? 'Ingresando…' : 'Ingresar'}
